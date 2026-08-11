@@ -21,8 +21,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap"
     rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>emailjs.init('I1SD7MmmPq3R2rMdT-');</script>
   <style>
     *,
     *::before,
@@ -111,18 +109,6 @@
 
     .nav-links a:hover {
       color: var(--green-lt) !important;
-    }
-
-    .nav-book-btn {
-      padding: 9px 22px !important;
-      background: var(--green) !important;
-      color: var(--white) !important;
-      border: 1.5px solid var(--green);
-      transition: background .3s !important;
-    }
-
-    .nav-book-btn:hover {
-      background: var(--green-lt) !important;
     }
 
     /* Mobile nav */
@@ -702,36 +688,7 @@
       transform: scale(1.5);
     }
 
-    /* ── BOOKING ── */
-    .booking {
-      background: var(--beige);
-    }
-
-    .booking-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .booking-header {
-      margin-bottom: 52px;
-    }
-
-    .booking-header p {
-      font-size: .9rem;
-      line-height: 1.75;
-      color: var(--charcoal);
-      font-weight: 300;
-      margin-top: 16px;
-      max-width: 500px;
-    }
-
-    /* Booking form */
-    .booking-form {
-      background: var(--white);
-      border: 1px solid var(--beige2);
-      padding: 56px 60px;
-    }
-
+    /* ── FORMS ── */
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -827,44 +784,6 @@
 
     .form-submit:hover {
       background: var(--green);
-    }
-
-    .booking-confirmation {
-      display: none;
-      text-align: center;
-      padding: 60px 40px;
-    }
-
-    .booking-confirmation .check {
-      width: 56px;
-      height: 56px;
-      border: 2px solid var(--green);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-    }
-
-    .booking-confirmation .check svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--green);
-      fill: none;
-      stroke-width: 2;
-    }
-
-    .booking-confirmation h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-weight: 300;
-    }
-
-    .booking-confirmation p {
-      font-size: .88rem;
-      color: #888;
-      margin-top: 12px;
-      font-weight: 300;
     }
 
     /* ── CONTACT ── */
@@ -1272,10 +1191,6 @@
         padding: 0 40px;
       }
 
-      .booking-form {
-        padding: 36px 24px;
-      }
-
       .form-grid {
         grid-template-columns: 1fr;
       }
@@ -1330,7 +1245,6 @@
     <a href="#about" onclick="closeMobile()">About</a>
     <a href="#services" onclick="closeMobile()">Services</a>
     <a href="#gallery" onclick="closeMobile()">Gallery</a>
-    <a href="#booking" onclick="closeMobile()">Book</a>
     <a href="#contact" onclick="closeMobile()">Contact</a>
     <a href="#opportunities" onclick="closeMobile()">Opportunities</a>
   </div>
@@ -1342,10 +1256,8 @@
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#booking">Book</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#opportunities">Opportunities</a></li>
-      <li><a href="#booking" class="nav-book-btn">Book Now</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -1361,7 +1273,6 @@
       <h1 class="hero-title">JT <em>Hair</em><br>Salon</h1>
       <p class="hero-sub">Where every visit is a transformation</p>
       <div class="hero-cta">
-        <a href="#booking" class="btn btn-primary">Book Appointment</a>
         <a href="#services" class="btn btn-outline">Our Services</a>
       </div>
     </div>
@@ -1420,7 +1331,6 @@
           <span class="section-label">What We Offer</span>
           <h2 class="section-heading">Our Services</h2>
         </div>
-        <a href="#booking" class="btn btn-primary">Book Now</a>
       </div>
       <div class="services-grid">
         <div class="service-card reveal visible">
@@ -1533,106 +1443,14 @@
         aria-label="Go to slide 7"></button></div>
   </section>
 
-  <!-- BOOKING -->
-  <section class="booking" id="booking">
-    <div class="booking-inner">
-      <div class="booking-header reveal visible">
-        <div>
-          <span class="section-label">Schedule a Visit</span>
-          <h2 class="section-heading">Book Your<br><em>Appointment</em></h2>
-          <p>Fill out the form below and we'll confirm your appointment within a few hours. Walk-ins are always welcome
-            too — give us a call at <a href="tel:3107910903" style="color:var(--green)">(310) 791-0903</a>.</p>
-        </div>
-      </div>
-
-      <div class="booking-form reveal visible" id="bookingForm">
-        <form id="apptForm" onsubmit="submitBooking(event)">
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="fname">First Name *</label>
-              <input class="form-input" id="fname" name="fname" type="text" placeholder="Your first name" required="">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="lname">Last Name</label>
-              <input class="form-input" id="lname" name="lname" type="text" placeholder="Your last name">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="phone">Phone Number *</label>
-              <input class="form-input" id="phone" name="phone" type="tel" placeholder="(310) 000-0000" required="">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="email">Email Address</label>
-              <input class="form-input" id="email" name="email" type="email" placeholder="your@email.com">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="service">Service *</label>
-              <select class="form-select" id="service" name="service" required="">
-                <option value="">Select a service…</option>
-                <option>Haircut &amp; Styling</option>
-                <option>Color &amp; Highlights</option>
-                <option>Relaxer / Perm</option>
-                <option>Blow-Out &amp; Set</option>
-                <option>Deep Conditioning</option>
-                <option>Natural Hair Care</option>
-                <option>Other / Consultation</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="stylist">Preferred Stylist</label>
-              <select class="form-select" id="stylist" name="stylist">
-                <option value="John Gutierrez" selected="">John Gutierrez</option>
-                <option value="Fernando Candela">Fernando Candela</option>
-                <option value="Song">Song</option>
-                <option value="Zhanna">Zhanna</option>
-                <option value="Kelly">Kelly</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="apptDate">Preferred Date *</label>
-              <input class="form-input" id="apptDate" name="apptDate" type="date" required="" min="2026-03-30">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="apptTime">Preferred Time *</label>
-              <select class="form-select" id="apptTime" name="apptTime" required="">
-                <option value="">Select a date first…</option>
-              </select>
-            </div>
-            <div class="form-group full">
-              <label class="form-label" for="notes">Additional Notes</label>
-              <textarea class="form-textarea" id="notes" name="notes"
-                placeholder="Anything we should know about your hair, style goals, or special requests…"></textarea>
-            </div>
-          </div>
-          <div class="form-actions">
-            <p class="form-note">We'll confirm your booking within a few hours. Prefer to call? <a
-                href="tel:3107910903">(310) 791-0903</a></p>
-            <button class="form-submit" type="submit">Request Appointment</button>
-          </div>
-        </form>
-
-        <!-- Confirmation message shown after submit -->
-        <div class="booking-confirmation" id="bookingConfirm">
-          <div class="check">
-            <svg viewBox="0 0 24 24">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </div>
-          <h3>Request Sent!</h3>
-          <p>Thank you! We'll reach out to confirm your appointment soon.<br>Questions? Call us at <a
-              href="tel:3107910903" style="color:var(--green)">(310) 791-0903</a>.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="contact-inner">
       <div class="reveal visible">
         <span class="section-label">Find Us</span>
         <h2 class="section-heading">Come Visit<br><em>the Studio</em></h2>
-        <p class="contact-desc">Conveniently located on Hawthorne Blvd in Torrance. Walk-ins are always welcome, or give
-          us a call to reserve your appointment.</p>
+        <p class="contact-desc">Conveniently located on Hawthorne Blvd in Torrance. Walk-ins are always welcome. Give
+          us a call with any questions.</p>
         <div class="contact-details">
           <div class="contact-item">
             <div class="contact-ico">
@@ -1897,307 +1715,6 @@
 
     buildDots();
     updateButtons();
-
-    /* ── BOOKING FORM ── */
-
-    // ╔══════════════════════════════════════════════════════════════╗
-    // ║  STYLIST SCHEDULE — Edit times here to update availability  ║
-    // ║  Days: 0=Sun  1=Mon  2=Tue  3=Wed  4=Thu  5=Fri  6=Sat     ║
-    // ╚══════════════════════════════════════════════════════════════╝
-    const STYLIST_SCHEDULE = {
-      'John Gutierrez': {
-        // Regular weekly hours: 10:30 AM – 6:00 PM
-        // Remove a day (or set []) to mark as day off.
-        0: [],  // Sunday — OFF
-        1: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Monday
-        2: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Tuesday
-        3: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Wednesday
-        4: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Thursday
-        5: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Friday
-        6: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Saturday
-      },
-      'Fernando Candela': {
-        // Regular weekly hours: 10:30 AM – 6:00 PM
-        // Remove a day (or set []) to mark as day off.
-        0: [],  // Sunday — OFF
-        1: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Monday
-        2: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Tuesday
-        3: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Wednesday
-        4: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Thursday
-        5: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Friday
-        6: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Saturday
-      },
-      'Song': {
-        // Regular weekly hours: 10:30 AM – 6:00 PM
-        // Remove a day (or set []) to mark as day off.
-        0: [],  // Sunday — OFF
-        1: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Monday
-        2: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Tuesday
-        3: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Wednesday
-        4: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Thursday
-        5: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Friday
-        6: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Saturday
-      },
-      'Zhanna': {
-        0: [],  // Sunday — OFF
-        1: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Monday
-        2: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Tuesday
-        3: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Wednesday
-        4: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Thursday
-        5: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Friday
-        6: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Saturday
-      },
-      'Kelly': {
-        0: [],  // Sunday — OFF
-        1: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Monday
-        2: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Tuesday
-        3: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Wednesday
-        4: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Thursday
-        5: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Friday
-        6: ['10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
-          '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-          '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM'],  // Saturday
-      }
-    };
-
-    // ╔══════════════════════════════════════════════════════════════╗
-    // ║  DATE OVERRIDES — Specific dates with different hours       ║
-    // ║  These override the weekly schedule for that exact date.    ║
-    // ║  Format: 'YYYY-MM-DD': ['time', 'time', ...]               ║
-    // ╚══════════════════════════════════════════════════════════════╝
-    const DATE_OVERRIDES = {
-      'John Gutierrez': {
-        '2026-03-31': ['11:45 AM', '12:00 PM', '12:30 PM', '1:00 PM', '1:30 PM',
-          '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM',
-          '4:30 PM', '5:00 PM'],                        // Tue Mar 31 — 11:45 AM–5 PM
-        '2026-04-01': ['10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM',
-          '12:30 PM', '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM',
-          '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM', '5:00 PM'],  // Wed Apr 1 — 10 AM–5 PM
-        '2026-04-02': ['10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM',
-          '12:30 PM', '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM',
-          '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM', '5:00 PM'],  // Thu Apr 2 — 10 AM–5 PM
-        '2026-04-03': ['11:30 AM', '12:00 PM', '12:30 PM', '1:00 PM', '1:30 PM',
-          '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM'],  // Fri Apr 3 — 11:30 AM–4 PM
-      },
-      'Fernando Candela': {
-        // Add date overrides below — one line per date:
-        // '2026-04-10': ['11:00 AM','11:30 AM','12:00 PM'],
-      },
-      'Song': {
-        // Add date overrides below — one line per date:
-        // '2026-04-10': ['11:00 AM','11:30 AM','12:00 PM'],
-      },
-      'Zhanna': {
-        // Add date overrides below — one line per date:
-        // '2026-04-10': ['11:00 AM','11:30 AM','12:00 PM'],
-      },
-      'Kelly': {
-        // Add date overrides below — one line per date:
-        // '2026-04-10': ['11:00 AM','11:30 AM','12:00 PM'],
-      }
-    };
-
-    // ╔══════════════════════════════════════════════════════════════╗
-    // ║  BLOCKED SLOTS — Add phone/walk-in bookings here           ║
-    // ║  Format: 'YYYY-MM-DD': ['time', 'time']                   ║
-    // ║  Example: '2026-03-28': ['10:00 AM', '2:30 PM']           ║
-    // ╚══════════════════════════════════════════════════════════════╝
-    const BLOCKED_SLOTS = {
-      'John Gutierrez': {
-        // Add blocked dates below — one line per day:
-        // '2026-03-28': ['10:00 AM', '2:30 PM'],
-      },
-      'Fernando Candela': {
-        // Add blocked dates below — one line per day:
-        // '2026-03-28': ['10:00 AM', '2:30 PM'],
-      },
-      'Song': {
-        // Add blocked dates below — one line per day:
-        // '2026-03-28': ['10:00 AM', '2:30 PM'],
-      },
-      'Zhanna': {
-        // Add blocked dates below — one line per day:
-        // '2026-03-28': ['10:00 AM', '2:30 PM'],
-      },
-      'Kelly': {
-        // Add blocked dates below — one line per day:
-        // '2026-03-28': ['10:00 AM', '2:30 PM'],
-      }
-    };
-
-    // All general salon times (used when "Any stylist" is selected)
-    const ALL_TIMES = [
-      '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
-      '12:00 PM', '12:30 PM', '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM',
-      '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM',
-      '6:00 PM', '6:30 PM'
-    ];
-
-    const dateInput = document.getElementById('apptDate');
-    const stylistSel = document.getElementById('stylist');
-    const timeSel = document.getElementById('apptTime');
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.setAttribute('min', today);
-
-    function updateTimes() {
-      const stylist = stylistSel.value;
-      const dateVal = dateInput.value;
-      timeSel.innerHTML = '';
-
-      let times = ALL_TIMES;
-      let placeholder = 'Select a time…';
-
-      if (stylist && STYLIST_SCHEDULE[stylist]) {
-        if (!dateVal) {
-          placeholder = 'Select a date first…';
-          times = [];
-        } else {
-          // Date override takes priority over regular weekly schedule
-          if (DATE_OVERRIDES[stylist] && DATE_OVERRIDES[stylist][dateVal]) {
-            times = DATE_OVERRIDES[stylist][dateVal].slice();
-          } else {
-            const dayOfWeek = new Date(dateVal + 'T12:00:00').getDay();
-            times = (STYLIST_SCHEDULE[stylist][dayOfWeek] || []).slice();
-          }
-          // Remove any times blocked by phone/walk-in bookings
-          const blocked = (BLOCKED_SLOTS[stylist] && BLOCKED_SLOTS[stylist][dateVal]) || [];
-          times = times.filter(t => !blocked.includes(t));
-          if (times.length === 0) placeholder = stylist + ' is fully booked that day';
-        }
-      }
-
-      const blank = document.createElement('option');
-      blank.value = '';
-      blank.textContent = placeholder;
-      timeSel.appendChild(blank);
-      times.forEach(t => {
-        const opt = document.createElement('option');
-        opt.value = t; opt.textContent = t;
-        timeSel.appendChild(opt);
-      });
-    }
-
-    stylistSel.addEventListener('change', updateTimes);
-    dateInput.addEventListener('change', updateTimes);
-    updateTimes();
-
-    // Stylist email map — add more stylists here as needed
-    const STYLIST_EMAILS = {
-      'John Gutierrez': 'johnnyjthair@gmail.com',
-      'Fernando Candela': 'fercansan@hotmail.com',
-      'Song': 'lim93745@gmail.com',
-      'Zhanna': 'zhannik0110@gmail.com',
-      'Kelly': 'kellywang6886@gmail.com'
-    };
-
-    // SMS sent via Netlify Function (/.netlify/functions/send-sms) using Twilio A2P
-
-    function submitBooking(e) {
-      e.preventDefault();
-      const f = e.target;
-      const stylistName = f.stylist.value || 'John Gutierrez';
-      const stylistEmail = STYLIST_EMAILS[stylistName] || 'johnnyjthair@gmail.com';
-
-      const bookingData = {
-        stylist_name: stylistName,
-        stylist_email: stylistEmail,
-        client_name: f.fname.value + ' ' + f.lname.value,
-        client_phone: f.phone.value,
-        client_email: f.email.value || 'N/A',
-        service: f.service.value,
-        date: f.apptDate.value,
-        time: f.apptTime.value,
-        notes: f.notes.value || 'None'
-      };
-
-      function showConfirm() {
-        document.getElementById('apptForm').style.display = 'none';
-        document.getElementById('bookingConfirm').style.display = 'block';
-      }
-
-      // 1) Email notification to stylist via EmailJS
-      emailjs.send('service_augfpwt', 'template_nwr1o4v', bookingData).then((response) => { console.log('SUCCESS!', response.status, response.text); }, (error) => { console.log('FAILED...', error); },);
-
-
-
-
-
-
-
-
-
-      // 2) A2P SMS via Twilio (Netlify Function)
-      fetch('/.netlify/functions/send-sms', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bookingData)
-      })
-        .then(function (res) {
-          if (!res.ok) res.json().then(function (d) { console.error('SMS error:', d); });
-        })
-        .catch(function (err) { console.error('SMS function error:', err); });
-
-      // Show confirmation immediately — don't make client wait on SMS
-      showConfirm();
-    }
 
     /* ── OPPORTUNITY FORM ── */
     function submitOpportunity(e) {
