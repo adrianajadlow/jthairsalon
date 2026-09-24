@@ -111,6 +111,18 @@
       color: var(--green-lt) !important;
     }
 
+    .nav-book-btn {
+      padding: 9px 22px;
+      background: var(--green);
+      color: var(--white) !important;
+      border: 1px solid var(--green);
+    }
+
+    .nav-book-btn:hover {
+      background: var(--green-lt);
+      border-color: var(--green-lt);
+    }
+
     /* Mobile nav */
     .nav-hamburger {
       display: none;
@@ -688,6 +700,67 @@
       transform: scale(1.5);
     }
 
+    /* ── BOOKING ── */
+    .booking {
+      background: var(--beige);
+    }
+
+    .booking-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, .8fr);
+      gap: 80px;
+      align-items: center;
+    }
+
+    .booking-copy {
+      max-width: 600px;
+    }
+
+    .booking-copy p {
+      margin-top: 24px;
+      color: var(--charcoal);
+      font-size: .95rem;
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    .booking-card {
+      background: var(--black);
+      padding: 56px 48px;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .booking-card-label {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--green-lt);
+      font-size: .64rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+    }
+
+    .booking-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 1.15;
+    }
+
+    .booking-card p {
+      margin: 16px auto 30px;
+      color: rgba(255, 255, 255, .6);
+      font-size: .84rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .booking-card .btn {
+      width: 100%;
+    }
+
     /* ── FORMS ── */
     .form-grid {
       display: grid;
@@ -1163,7 +1236,8 @@
       }
 
       .about-inner,
-      .contact-inner {
+      .contact-inner,
+      .booking-inner {
         grid-template-columns: 1fr;
         gap: 48px;
       }
@@ -1230,6 +1304,10 @@
         padding: 0 36px;
       }
 
+      .booking-card {
+        padding: 44px 28px;
+      }
+
       .hero-title {
         font-size: clamp(3rem, 10vw, 5rem);
       }
@@ -1245,6 +1323,8 @@
     <a href="#about" onclick="closeMobile()">About</a>
     <a href="#services" onclick="closeMobile()">Services</a>
     <a href="#gallery" onclick="closeMobile()">Gallery</a>
+    <a href="https://www.fresha.com/book-now/jt-hair-salon-odrif5oy/all-offer?share=true&amp;pId=2855201"
+      target="_blank" rel="noopener noreferrer" onclick="closeMobile()">Book</a>
     <a href="#contact" onclick="closeMobile()">Contact</a>
     <a href="#opportunities" onclick="closeMobile()">Opportunities</a>
   </div>
@@ -1258,6 +1338,8 @@
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#opportunities">Opportunities</a></li>
+      <li><a href="https://www.fresha.com/book-now/jt-hair-salon-odrif5oy/all-offer?share=true&amp;pId=2855201"
+          class="nav-book-btn" target="_blank" rel="noopener noreferrer">Book Now</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -1273,6 +1355,8 @@
       <h1 class="hero-title">JT <em>Hair</em><br>Salon</h1>
       <p class="hero-sub">Where every visit is a transformation</p>
       <div class="hero-cta">
+        <a href="https://www.fresha.com/book-now/jt-hair-salon-odrif5oy/all-offer?share=true&amp;pId=2855201"
+          class="btn btn-primary" target="_blank" rel="noopener noreferrer">Book Appointment</a>
         <a href="#services" class="btn btn-outline">Our Services</a>
       </div>
     </div>
@@ -1331,6 +1415,8 @@
           <span class="section-label">What We Offer</span>
           <h2 class="section-heading">Our Services</h2>
         </div>
+        <a href="https://www.fresha.com/book-now/jt-hair-salon-odrif5oy/all-offer?share=true&amp;pId=2855201"
+          class="btn btn-primary" target="_blank" rel="noopener noreferrer">Book Now</a>
       </div>
       <div class="services-grid">
         <div class="service-card reveal visible">
@@ -1441,6 +1527,25 @@
         aria-label="Go to slide 4"></button><button class="carousel-dot" aria-label="Go to slide 5"></button><button
         class="carousel-dot" aria-label="Go to slide 6"></button><button class="carousel-dot"
         aria-label="Go to slide 7"></button></div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="booking" id="booking">
+    <div class="booking-inner">
+      <div class="booking-copy reveal visible">
+        <span class="section-label">Schedule a Visit</span>
+        <h2 class="section-heading">Book Your<br><em>Appointment</em></h2>
+        <p>Choose your service, stylist, and preferred time through Fresha for instant online booking. Walk-ins are also
+          welcome, or call us at (310) 791-0903 with any questions.</p>
+      </div>
+      <div class="booking-card reveal visible">
+        <span class="booking-card-label">Online Booking</span>
+        <h3>Your next look starts here.</h3>
+        <p>View live availability and reserve your appointment securely with Fresha.</p>
+        <a href="https://www.fresha.com/book-now/jt-hair-salon-odrif5oy/all-offer?share=true&amp;pId=2855201"
+          class="btn btn-primary" target="_blank" rel="noopener noreferrer">Continue to Fresha</a>
+      </div>
+    </div>
   </section>
 
   <!-- CONTACT -->
