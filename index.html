@@ -527,6 +527,12 @@
     .opp-confirm h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; }
     .opp-confirm p { font-size: .85rem; color: #888; margin-top: 10px; font-weight: 300; }
 
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 20px; }
+    .footer-links a { font-size: .78rem; color: var(--beige); text-underline-offset: 4px; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-links a:focus-visible { outline: 2px solid var(--green-lt); outline-offset: 5px; }
+    footer { flex-wrap: wrap; gap: 20px; }
+
     /* ── FOOTER ── */
     footer {
       background: var(--black); border-top: 1px solid rgba(255,255,255,.07);
@@ -980,6 +986,10 @@
 <!-- FOOTER -->
 <footer>
   <span class="footer-logo">JT Hair Salon</span>
+  <nav class="footer-links" aria-label="Legal information">
+    <a href="/policies.html#terms-of-service">Terms of Service</a>
+    <a href="/policies.html#privacy-policy">Privacy Policy</a>
+  </nav>
   <span class="footer-copy">© 2025 JT Hair Salon · Torrance, CA · (310) 791-0903</span>
 </footer>
 
